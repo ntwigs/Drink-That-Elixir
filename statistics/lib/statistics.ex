@@ -1,18 +1,8 @@
 defmodule Statistics do
-  @moduledoc """
-  Documentation for Statistics.
-  """
+  import Max
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Statistics.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def initialize do
+    numbers = [1, 2, 3, 4, 5, 6]
+    Max.get_max(numbers)
   end
 end
