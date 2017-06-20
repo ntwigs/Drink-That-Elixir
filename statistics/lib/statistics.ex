@@ -2,7 +2,7 @@ defmodule Statistics do
   import Max
 
   def initialize do
-    numbers = [1, 2, 3, 4, 5, 6]
-    Max.get_max(numbers)
+    numbers = [5,3,2,4,1337,6,2,1,3,7,100,122]
+    IO.puts "Max Value: #{ Max.get_max(numbers) }"
   end
 end
