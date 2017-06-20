@@ -9,7 +9,5 @@ defmodule Max do
     if (length(remainder) === 1), do: write(current), else: compare(new_list)
   end
 
-  def compare([]), do: nil
-
   def write(value), do: IO.puts "Max Value: #{ value }"
 end
