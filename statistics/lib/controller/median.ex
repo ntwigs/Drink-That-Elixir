@@ -1,0 +1,3 @@
+defmodule Median do
+    
+end
