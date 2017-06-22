@@ -1,5 +1,5 @@
 defmodule Statistics do
-  @number_list [ -1, -2, -3, -4, -5, -6 ]
+  @number_list [ 1, 2, 6, 3, 4, 5, 3, 6, 6, 2, 2 ]
 
   def initialize do
     get_max()
@@ -7,6 +7,7 @@ defmodule Statistics do
     get_mean()
     get_range()
     get_median()
+    get_mode()
   end
 
   def get_max do
@@ -32,5 +33,10 @@ defmodule Statistics do
   def get_median do
     median_value = Median.get(@number_list)
     Presentation.display("Median", median_value)
+  end
+
+  def get_mode do
+    mode_value = Mode.get(@number_list)
+    Presentation.display("Mode", mode_value)
   end
 end
