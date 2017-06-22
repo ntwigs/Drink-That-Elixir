@@ -1,8 +1,12 @@
 defmodule Median do
+  @moduledoc """
+    This module gets the median value from a list of integers.
+  """
+
   def get(numbers) do
     sorted_list = Enum.sort(numbers)
     is_even = rem(length(numbers), 2) === 0
-    if (is_even), do: get_center_even(sorted_list), else: get_center_odd(sorted_list) 
+    if is_even, do: get_center_even(sorted_list), else: get_center_odd(sorted_list) 
   end
 
   def get_center_even(sorted_list) do
