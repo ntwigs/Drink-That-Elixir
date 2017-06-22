@@ -1,4 +1,10 @@
 defmodule Statistics do
+  @moduledoc """
+    This is the index module which is used in order to initialize
+    all the calls to the different sets of modules. The modules 
+    that are called are located in the controller, and view folder.
+  """
+
   @number_list [ 1, 2, 6, 3, 4, 5, 3, 6, 6, 2, 2 ]
 
   def initialize do

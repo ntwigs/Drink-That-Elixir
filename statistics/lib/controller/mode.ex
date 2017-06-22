@@ -1,4 +1,8 @@
 defmodule Mode do
+  @moduledoc """
+    This module gets the most occurring values from a list of integers.
+  """
+
   def get(number_list) do
     compare(number_list)
   end
@@ -15,7 +19,7 @@ defmodule Mode do
     values = accumulator |> Map.values() |> Enum.sort()
     highest_value = Max.get(values)
     highest_list = []
-    accumulator 
+    accumulator
       |> Enum.filter(fn { key, value } -> value === highest_value end)
       |> Enum.map(fn { key, value } -> "#{ Atom.to_string(key) }, " end) 
   end

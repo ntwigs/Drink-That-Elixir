@@ -1,4 +1,8 @@
 defmodule Mean do
+  @moduledoc """
+    This module gets the mean value from a list of integers.
+  """
+
   def get(numbers) do
     list_sum = sum(numbers)
     list_amount = length(numbers)
