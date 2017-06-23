@@ -18,9 +18,11 @@ defmodule Mode do
   def get_highest(accumulator) do
     values = accumulator |> Map.values() |> Enum.sort()
     highest_value = Max.get(values)
-    highest_list = []
-    accumulator
-      |> Enum.filter(fn { key, value } -> value === highest_value end)
-      |> Enum.map(fn { key, value } -> "#{ Atom.to_string(key) }, " end) 
+    all_highest_keys = accumulator
+      |> Enum.filter(fn { _, value } -> value === highest_value end)
+      |> Enum.map(fn { key, _ } -> Atom.to_string(key) end)
+      |> Enum.join(", ")
+    
+    "[ #{ all_highest_keys } ]"
   end
 end
