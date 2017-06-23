@@ -1,19 +1,31 @@
 # Statistics
 
-**TODO: Add description**
+### What is this?
+It gathers some statistics from a List of integers, and those statistics are the following:
+* Max
+* Min
+* Mean
+* Mode
+* Range
+* Median
 
-## Installation
+### Example
+    Statistics.analyze([1, 2, 3])
+#### Gives the following:
+    #*********************#  
+    Max: 3  
+    #*********************#  
+    Min: 1  
+    #*********************#  
+    Mean: 2.0  
+    #*********************#  
+    Range: 2  
+    #*********************#  
+    Median: 2  
+    #*********************#  
+    Mode: [ 1, 2, 3 ]  
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `statistics` to your list of dependencies in `mix.exs`:
 
-```elixir
-def deps do
-  [{:statistics, "~> 0.1.0"}]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/statistics](https://hexdocs.pm/statistics).
-
+### Tests
+Run tests by writing:
+    *mix test*
