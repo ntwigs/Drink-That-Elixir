@@ -31,4 +31,12 @@ defmodule StatisticsTest do
     assert Range.get([3, 5, 2, -5, 9, 2, -5, 5, 10, 4, 1, 0, -1, 9, 0]) === 15
     assert Range.get([5, 1, 1, 1, 3, -2, 2, 5, 7, 4, 5, 16]) === 18
   end
+
+  test "Non-existant" do
+    assert Statistics.analyze() === :error
+  end
+
+  test "Empty" do
+    assert Statistics.analyze([]) === :error
+  end
 end

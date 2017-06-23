@@ -19,11 +19,13 @@ defmodule Presentation do
     IO.puts @line
     IO.puts "The data to analyze was too short."
     IO.puts @line
+    :error
   end
 
   def no_data do
     IO.puts @line
     IO.puts "There was no data to analyze."
     IO.puts @line
+    :error
   end
 end
