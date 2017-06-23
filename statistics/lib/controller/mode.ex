@@ -3,9 +3,7 @@ defmodule Mode do
     This module gets the most occurring values from a list of integers.
   """
 
-  def get(number_list) do
-    compare(number_list)
-  end
+  def get(number_list), do: compare(number_list)
 
   def compare([current|remainder], accumulator \\ %{ }) do
     current_as_atom = current |> Integer.to_string() |> String.to_atom()
@@ -15,7 +13,7 @@ defmodule Mode do
 
   def compare([], accumulator), do: get_highest(accumulator)
 
-  def get_highest(accumulator) do
+  defp get_highest(accumulator) do
     values = accumulator |> Map.values() |> Enum.sort()
     highest_value = Max.get(values)
     all_highest_keys = accumulator

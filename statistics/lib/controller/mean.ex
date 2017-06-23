@@ -9,13 +9,13 @@ defmodule Mean do
     calculate_mean(list_sum, list_amount)
   end
 
-  def sum([current|remainder], list_sum \\ 0) do
+  defp sum([current|remainder], list_sum \\ 0) do
     sum(remainder, list_sum + current)
   end
 
-  def sum([], list_sum), do: list_sum
+  defp sum([], list_sum), do: list_sum
 
-  def calculate_mean(list_sum, list_amount) do
+  defp calculate_mean(list_sum, list_amount) do
     rounded_value = Float.round(list_sum / list_amount, 1)
     rounded_value
   end
