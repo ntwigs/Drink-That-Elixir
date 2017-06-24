@@ -15,9 +15,11 @@ defmodule Rovarsprak.Controller do
     another_conversion
   end
 
-  defp compare_word_consonants(word_to_convert) do
+  def compare_word_consonants(word_to_convert) do
     letters_in_word = String.split(word_to_convert, "")
-    compare(letters_in_word)
+    converted_word = compare(letters_in_word)
+    Present.display_converted_word(converted_word)
+    converted_word
   end
 
   defp compare([letter|remaining], accumulator \\ "") do
@@ -28,7 +30,7 @@ defmodule Rovarsprak.Controller do
     compare(remaining, combined_string)
   end
 
-  defp compare([], accumulator), do: Present.display_converted_word(accumulator)
+  defp compare([], accumulator), do: accumulator
 
   defp combine_letters(letter), do: "#{ letter }o#{ letter }"
 
