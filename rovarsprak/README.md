@@ -1,19 +1,18 @@
-# Rovarsprak
+# Rövarspråk
 
-**TODO: Add description**
+### What is this?
+A simple little application that converts words to "Rövarspråk".
 
-## Installation
+### Example
+    Enter a word to convert: This is rovarsprak
+#### Gives the following:
+    @*-*-*-*-*-*---
+    Thohisos isos rorovovarorsospoprorakok
+    @*-*-*-*-*-*---
+#### Which then gives to question to convert more
+    Would you like to convert another word? (y/n): y/n
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `rovarsprak` to your list of dependencies in `mix.exs`:
 
-```elixir
-def deps do
-  [{:rovarsprak, "~> 0.1.0"}]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/rovarsprak](https://hexdocs.pm/rovarsprak).
-
+### Tests
+Run tests by writing:
+    *mix test*
