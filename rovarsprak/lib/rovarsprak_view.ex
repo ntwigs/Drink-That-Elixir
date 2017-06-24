@@ -11,7 +11,7 @@ defmodule Rovarsprak.View do
   def clear, do: IO.write [IO.ANSI.home, IO.ANSI.clear]
   def display_converted_word(word) do
     IO.puts @line
-    IO.puts word
+    IO.write word
     IO.puts @line
   end
 end
