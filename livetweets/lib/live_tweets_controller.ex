@@ -1,6 +1,8 @@
 defmodule LiveTweets.Controller do
+  alias LiveTweets.View, as: Presenter
+
   def initialize do
-    keyword = IO.gets "What would you like to search for?: " |> String.strip()
+    keyword = Presenter.keyword_query
     start_stream(keyword)
   end
 
