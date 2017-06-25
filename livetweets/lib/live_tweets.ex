@@ -1,18 +1,5 @@
 defmodule LiveTweets do
-  @moduledoc """
-  Documentation for Livetweets.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Livetweets.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def start_stream do
+    
   end
 end
