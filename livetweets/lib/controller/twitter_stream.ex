@@ -12,13 +12,13 @@ defmodule LiveTweets.TwitterStream do
 
     stream = ExTwitter.stream_filter(track: keyword) |>
       Stream.map(&(&1.text)) |>
-      Stream.map(&(print_it(agent, &1)))
+      Stream.map(&(add_to_agent(agent, &1)))
     Enum.to_list(stream)
   end
 
-  def print_it(agent, result) do
+  def add_to_agent(agent, result) do
     Agent.update(agent, &([result | &1]))
     current = Agent.get(agent, &(&1))
-    IO.puts current
+    Handler.handle_data(current)
   end
 end
