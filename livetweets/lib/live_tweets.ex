@@ -1,5 +1,3 @@
 defmodule LiveTweets do
-  def start_stream do
-    
-  end
+  def start_stream, do: LiveTweets.Controller.initialize
 end
