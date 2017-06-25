@@ -8,8 +8,8 @@ defmodule LiveTweets.Controller do
 
   defp start_stream(keyword) do
     stream = ExTwitter.stream_filter(track: keyword) |>
-      Stream.map(fn(x) -> x.text end) |>
-      Stream.map(fn(x) -> IO.puts "#{x}\n---------------\n" end)
+      Stream.map(&(&1.text)) |>
+      Stream.map(&(Presenter.present_result(&1)))
     Enum.to_list(stream)
   end
 end
