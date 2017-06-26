@@ -13,12 +13,12 @@ defmodule LiveTweets.TwitterStream do
     Presenter.display(:searching, :none)
     start_stream(keyword)
   end
+
   defp start_stream keyword do
     { :ok, agent } = Agent.start_link fn -> [] end
     stream = ExTwitter.stream_filter(track: keyword) |>
       Stream.filter(&(String.slice(&1.text, 0, 2) !== "RT" )) |> # Removes retweets
-      Stream.map(&(&1.text)) |>
-      Stream.map(&(add_to_agent(agent, &1)))
+      Stream.map(&(add_to_agent(agent, &1.text)))
     Enum.to_list(stream)
   end
 
