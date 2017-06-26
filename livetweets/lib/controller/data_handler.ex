@@ -13,6 +13,7 @@ defmodule LiveTweets.DataHandler do
     words = get_highest(counted_words)
     Presenter.clear
     Presenter.present_result(words)
+    words
   end
 
   def collect_words result do
