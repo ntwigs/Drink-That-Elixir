@@ -3,5 +3,5 @@ defmodule LiveTweets do
   Initializes the process.
   """
 
-  def start_stream, do: LiveTweets.TwitterStream.initialize
+  def main(_args), do: LiveTweets.TwitterStream.initialize
 end
