@@ -11,8 +11,7 @@ defmodule LiveTweets.DataHandler do
     seperate_words = collect_words(result)
     counted_words = count_words(seperate_words)
     words = get_highest(counted_words)
-    Presenter.clear
-    Presenter.present_result(words)
+    Presenter.display(:stream, :result, words)
     words
   end
 
