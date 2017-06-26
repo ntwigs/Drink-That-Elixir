@@ -1,19 +1,17 @@
-# Livetweets
+# Live-Tweets
 
-**TODO: Add description**
+### What is this?
+A simple little application that analyzes the Twitter data-stream by searching for a chosen keyword, and counts the different words used togheter with that keyword in tweets. 
 
-## Installation
+### Example
+    --- Live Twitter
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `livetweets` to your list of dependencies in `mix.exs`:
+    What would you like to search for?: ex. Darth
+#### Gives the following:
+    darth - 11
+    star - 5
+    yoda - 2
 
-```elixir
-def deps do
-  [{:livetweets, "~> 0.1.0"}]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/livetweets](https://hexdocs.pm/livetweets).
-
+### Tests
+Run tests by writing:
+    *mix test*
