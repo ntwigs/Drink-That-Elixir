@@ -3,6 +3,7 @@ defmodule LiveTweets.DataHandler do
     seperate_words = split_phrases(result)
     counted_words = count_words(seperate_words)
     words = get_highest(counted_words)
+    IO.write [IO.ANSI.home, IO.ANSI.clear]
     IO.puts words
   end
 
@@ -23,7 +24,7 @@ defmodule LiveTweets.DataHandler do
   defp get_highest(accumulator) do
     all_highest_keys = accumulator
       |> Enum.sort(fn ({k1, v1}, {k2, v2}) -> v1 >= v2 end)
-      |> Enum.slice(0, 10)
+      |> Enum.slice(0, 30)
       |> Enum.map(fn { key, value } -> "#{ key } -- #{ value }\n" end)
   end
 end
