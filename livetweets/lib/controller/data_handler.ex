@@ -1,4 +1,10 @@
 defmodule LiveTweets.DataHandler do
+  @moduledoc """
+  This module takes a list which contains more lists which contains Tweets.
+  The Tweets are split in order to correctly count all the occurances of
+  words in them. (Use flat instead?). 
+  """
+
   def handle_data(result) do
     seperate_words = split_phrases(result)
     counted_words = count_words(seperate_words)

@@ -1,4 +1,9 @@
 defmodule LiveTweets.TwitterStream do
+  @moduledoc """
+  Gets a word from the user, initializes an Agent for state handling, and then
+  adds the results from the Twitter Stream to the Agent. The agent is then sent
+  to the data_handler in order to caluclate the word occurance from the result.
+  """
   alias LiveTweets.View, as: Presenter
   alias LiveTweets.DataHandler, as: Handler
 
