@@ -9,16 +9,14 @@ defmodule LiveTweets.TwitterStream do
   alias LiveTweets.DataHandler, as: Handler
 
   def initialize do
-    Presenter.clear
-    keyword = Presenter.keyword_query
-    Presenter.clear
+    keyword = Presenter.display(:none, :query)
+    Presenter.display(:searching, :none)
     start_stream(keyword)
   end
-
   defp start_stream keyword do
     { :ok, agent } = Agent.start_link fn -> [] end
-
     stream = ExTwitter.stream_filter(track: keyword) |>
+      Stream.filter(&(String.slice(&1.text, 0, 2) !== "RT" )) |> # Removes retweets
       Stream.map(&(&1.text)) |>
       Stream.map(&(add_to_agent(agent, &1)))
     Enum.to_list(stream)
