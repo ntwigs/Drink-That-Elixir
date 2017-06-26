@@ -6,19 +6,12 @@ defmodule LiveTweets.DataHandler do
   """
 
   def handle_data(result) do
-    seperate_words = split_phrases(result)
+    seperate_words = Enum.map(result, &(String.split(&1, " "))) |> List.flatten()
     counted_words = count_words(seperate_words)
     words = get_highest(counted_words)
     IO.write [IO.ANSI.home, IO.ANSI.clear]
     IO.puts words
   end
-
-  def split_phrases([current|remainder], accumulator \\ []) do
-    current_tweet = String.split(current, " ")
-    updated_accumulator = accumulator ++ current_tweet
-    split_phrases(remainder, updated_accumulator)
-  end
-  def split_phrases(_, accumulator), do: accumulator
 
   def count_words([word|remainder], accumulator \\ %{ }) do
     lowercase_word = String.downcase(word)
