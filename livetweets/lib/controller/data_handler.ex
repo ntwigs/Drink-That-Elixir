@@ -31,6 +31,6 @@ defmodule LiveTweets.DataHandler do
     accumulator
       |> Enum.sort(&(elem(&1, 1) >= elem(&2, 1)))
       |> Enum.slice(0, 30)
-      |> Enum.map(&"#{ elem(&1, 0) } -- #{ elem(&1, 1) }\n")
+      |> Enum.map(&Presenter.string_format(elem(&1, 0), elem(&1, 1)))
   end
 end
