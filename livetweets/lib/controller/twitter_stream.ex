@@ -9,7 +9,9 @@ defmodule LiveTweets.TwitterStream do
   alias LiveTweets.DataHandler, as: Handler
 
   def initialize do
+    Presenter.clear
     keyword = Presenter.keyword_query
+    Presenter.clear
     start_stream(keyword)
   end
 
