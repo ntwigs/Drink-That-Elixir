@@ -1,4 +1,4 @@
-defmodule Livetweets.Mixfile do
+defmodule LiveTweets.Mixfile do
   use Mix.Project
 
   def project do
