@@ -7,8 +7,9 @@ defmodule LiveTweets.View do
     clear
     message = get_message type
     IO.puts "--- Live Twitter\n\n"
-    get_view(view, result)
+    value = get_view(view, result)
     IO.puts message
+    value
   end
 
   def get_message type do

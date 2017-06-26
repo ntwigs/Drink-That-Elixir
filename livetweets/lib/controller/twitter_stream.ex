@@ -16,6 +16,7 @@ defmodule LiveTweets.TwitterStream do
 
   defp start_stream keyword do
     { :ok, agent } = Agent.start_link fn -> [] end
+
     stream = ExTwitter.stream_filter(track: keyword) |>
       Stream.filter(&(String.slice(&1.text, 0, 2) !== "RT" )) |> # Removes retweets
       Stream.map(&(add_to_agent(agent, &1.text)))
@@ -23,6 +24,7 @@ defmodule LiveTweets.TwitterStream do
   end
 
   def add_to_agent(agent, result) do
+    IO.puts result
     Agent.update(agent, &([result | &1]))
     current = Agent.get(agent, &(&1))
     Handler.handle_data(current)
