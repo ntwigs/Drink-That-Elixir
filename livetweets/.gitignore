@@ -17,10 +17,10 @@
 erl_crash.dump
 
 # Ignores secret keys in config (Rename config.default.exs to config.exs).
-config/config.exs
+/config/config.exs
 
 # No built file (run mix escript.build to build)
-livetweets
+/livetweets
 
 # Also ignore archive artifacts (built via "mix archive.build").
 *.ez
