@@ -5,12 +5,18 @@ defmodule LiveTweets.DataHandler do
   words in them. (Use flat instead?). 
   """
 
-  def handle_data(result) do
-    seperate_words = Enum.map(result, &(String.split(&1, " "))) |> List.flatten()
+  alias LiveTweets.View, as: Presenter
+
+  def handle_data result do
+    seperate_words = collect_words(result)
     counted_words = count_words(seperate_words)
     words = get_highest(counted_words)
-    IO.write [IO.ANSI.home, IO.ANSI.clear]
-    IO.puts words
+    Presenter.clear
+    Presenter.present_result(words)
+  end
+
+  def collect_words result do
+    Enum.map(result, &(String.split(&1, " "))) |> List.flatten()
   end
 
   def count_words([word|remainder], accumulator \\ %{ }) do
@@ -20,8 +26,8 @@ defmodule LiveTweets.DataHandler do
   end
   def count_words(_, accumulator), do: accumulator
 
-  defp get_highest(accumulator) do
-    all_highest_keys = accumulator
+  defp get_highest accumulator do
+    accumulator
       |> Enum.sort(fn ({k1, v1}, {k2, v2}) -> v1 >= v2 end)
       |> Enum.slice(0, 30)
       |> Enum.map(fn { key, value } -> "#{ key } -- #{ value }\n" end)
