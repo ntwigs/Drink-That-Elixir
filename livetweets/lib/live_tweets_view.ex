@@ -1,4 +1,9 @@
 defmodule LiveTweets.View do
-  def keyword_query, do: IO.gets "What would you like to search for?: " |> String.strip()
-  def present_result(result), do: IO.puts "#{ result }\n---------------\n"
+  @moduledoc """
+  This module handles what is presented in the terminal window.
+  """
+
+  def keyword_query, do: IO.gets "What would you like to search for?: "
+  def present_result result, do: IO.puts "#{ result }\n---------------\n"
+  def clear, do: IO.write [IO.ANSI.home, IO.ANSI.clear]
 end
