@@ -4,6 +4,7 @@ defmodule LiveTweets.TwitterStream do
   adds the results from the Twitter Stream to the Agent. The agent is then sent
   to the data_handler in order to caluclate the word occurance from the result.
   """
+
   alias LiveTweets.View, as: Presenter
   alias LiveTweets.DataHandler, as: Handler
 
@@ -12,7 +13,7 @@ defmodule LiveTweets.TwitterStream do
     start_stream(keyword)
   end
 
-  defp start_stream(keyword) do
+  defp start_stream keyword do
     { :ok, agent } = Agent.start_link fn -> [] end
 
     stream = ExTwitter.stream_filter(track: keyword) |>
