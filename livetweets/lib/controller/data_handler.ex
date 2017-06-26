@@ -16,7 +16,8 @@ defmodule LiveTweets.DataHandler do
   end
 
   def collect_words result do
-    Enum.map(result, &(String.split(&1, " "))) |> List.flatten()
+    Enum.map(result, &(String.split(&1, " ")))
+      |> List.flatten()
   end
 
   def count_words([word|remainder], accumulator \\ %{ }) do
@@ -28,8 +29,8 @@ defmodule LiveTweets.DataHandler do
 
   defp get_highest accumulator do
     accumulator
-      |> Enum.sort(fn ({k1, v1}, {k2, v2}) -> v1 >= v2 end)
+      |> Enum.sort(&(elem(&1, 1) >= elem(&2, 1)))
       |> Enum.slice(0, 30)
-      |> Enum.map(fn { key, value } -> "#{ key } -- #{ value }\n" end)
+      |> Enum.map(&"#{ elem(&1, 0) } -- #{ elem(&1, 1) }\n")
   end
 end
